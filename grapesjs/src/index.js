@@ -3,6 +3,7 @@ import Editor from './editor';
 import { isElement, isFunction } from 'underscore';
 import polyfills from 'utils/polyfills';
 import PluginManager from './plugin_manager';
+import ExportPlugin from '../node_modules/grapesjs-plugin-export';
 
 polyfills();
 
@@ -13,7 +14,9 @@ const defaultConfig = {
   autorender: 1,
 
   // Array of plugins to init
-  plugins: [],
+  plugins: [
+    ExportPlugin
+  ],
 
   // Custom options for plugins
   pluginsOpts: {}

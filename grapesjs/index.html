@@ -6,6 +6,7 @@
   <title>Demo Contest</title>
   <link rel="stylesheet" href="dist/css/grapes.min.css">
   <script src="dist/grapes.min.js"></script>
+  <script src="node_modules/grapesjs-plugin-export/dist/grapesjs-plugin-export.min.js"></script>
   <style>
     body,
     html {
@@ -87,16 +88,16 @@
   </div>
 
   <script type="text/javascript">
-    
+
     var editor = grapesjs.init({
       showOffsets: 2,
       noticeOnUnload: 0,
       container: '#gjs',
       height: '100%',
       fromElement: true,
-      plugins: ['grapesjs-plugin-forms'],
+      plugins: ['grapesjs-plugin-export'],
       pluginsOpts: {
-        'grapesjs-plugin-forms': {/* ...options */}
+        'grapesjs-plugin-export': { /* options */ }
       },
       storageManager: { autoload: 0 },
       styleManager: {
@@ -129,22 +130,22 @@
       },
     });
 
-    console.log('ahihi', editor);
+    // console.log('ahihi', editor);
     editor.BlockManager.add('testBlock', {
       label: 'Block',
-      attributes: { class:'gjs-fonts gjs-f-b1' },
+      attributes: { class: 'gjs-fonts gjs-f-b1' },
       content: `<div style="padding-top:50px; padding-bottom:50px; text-align:center">Test block</div>`
     });
 
     editor.BlockManager.add('Column1', {
       label: '1 Columns',
-      attributes: { class:'gjs-fonts gjs-f-b1' },
+      attributes: { class: 'gjs-fonts gjs-f-b1' },
       content: {
         type: 'column1',
         style: {
           height: '350px',
           display: 'grid',
-          gridTemplateColumns: '50% 50%' 
+          gridTemplateColumns: '50% 50%'
         }
       }
     });
@@ -158,23 +159,24 @@
         },
         removable: false, // Once inserted it can't be removed
       },
-      attributes: { class:'fa fa-map' }
+      attributes: { class: 'fa fa-map' }
     });
 
     editor.BlockManager.add('my-image-block', {
       label: 'Image',
       content: {
-        type: 'image', 
+        type: 'image',
         style: {
           height: '350px',
-          
+
         },
-        removable: false, 
+        removable: false,
       },
-      attributes: { class:'fa fa-file-image-o' },
+      attributes: { class: 'fa fa-file-image-o' },
     });
     
    
+    editor.commands.run('gjs-export-zip');
   </script>
 </body>
 

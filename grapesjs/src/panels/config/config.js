@@ -7,7 +7,7 @@ const obl = 'open-blocks';
 const ful = 'fullscreen';
 const prv = 'preview';
 const imp = 'import';
-const exp = 'export';
+const exp = 'gjs-export-zip';
 
 export default {
   stylePrefix: 'pn-',
@@ -54,7 +54,7 @@ export default {
           id: exp,
           className: 'fa fa-download',
           command: exp,
-          context: exp,
+          // context: exp,
           attributes: { title: 'Export' }
         },
         {
