@@ -4,6 +4,7 @@ import { isElement, isFunction } from 'underscore';
 import polyfills from 'utils/polyfills';
 import PluginManager from './plugin_manager';
 import ExportPlugin from '../node_modules/grapesjs-plugin-export';
+import ExportPluginForm from '../node_modules/grapesjs-plugin-forms';
 
 polyfills();
 
@@ -15,11 +16,16 @@ const defaultConfig = {
 
   // Array of plugins to init
   plugins: [
-    ExportPlugin
+    ExportPlugin,
+    ExportPluginForm
   ],
 
   // Custom options for plugins
-  pluginsOpts: {}
+  pluginsOpts: {
+    [ExportPluginForm]: {
+      blocks: 'form'
+    }
+  }
 };
 
 export default {

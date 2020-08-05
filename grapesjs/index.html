@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="dist/css/grapes.min.css">
   <script src="dist/grapes.min.js"></script>
   <script src="node_modules/grapesjs-plugin-export/dist/grapesjs-plugin-export.min.js"></script>
+  <script src="node_modules/grapesjs-plugin-forms/dist/grapesjs-plugin-forms.min.js"></script>
+  <script src="node_modules/grapesjs-navbar/dist/grapesjs-navbar.min.js"></script>
   <style>
     body,
     html {
@@ -95,9 +97,15 @@
       container: '#gjs',
       height: '100%',
       fromElement: true,
-      plugins: ['grapesjs-plugin-export'],
+      plugins: [
+        'grapesjs-plugin-export',
+        'grapesjs-plugin-forms',
+        'gjs-navbar'
+      ],
       pluginsOpts: {
-        'grapesjs-plugin-export': { /* options */ }
+        'grapesjs-plugin-export': { /* options */ },
+        'grapesjs-plugin-forms': {/* ...options */},
+        'gjs-navbar': {/* ...options */}
       },
       storageManager: { autoload: 0 },
       styleManager: {
@@ -177,6 +185,19 @@
     
    
     editor.commands.run('gjs-export-zip');
+    editor.commands.loadBlocks(editor, 'gjsForms')
+    editor.commands.loadTraits(editor, 'gjsForms')
+    editor.commands.loadComponents(editor, 'gjsForms')
+
+    editor.BlockManager.add('burger-menu', {
+      label: 'Navbar',
+      blocks: 'h-navbar',
+      content: {
+        type: 'image',
+      },
+      attributes: { class: 'fa fa-file-image-o' },
+    })
+
   </script>
 </body>
 
